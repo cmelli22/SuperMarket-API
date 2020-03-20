@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Supermarket.API.Domain.Models;
+using Supermarket.API.Extensions;
 using Supermarket.API.Resources;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Supermarket.API.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveCategoryResource, Category>();
+            CreateMap<SaveProductResoruce, Product>()
+                .ForMember(src => src.UnitOfMeasurement, opt => opt.MapFrom(src => (EUnitOfMeasurement)src.UnitOfMeasurement));
         }
 
     }

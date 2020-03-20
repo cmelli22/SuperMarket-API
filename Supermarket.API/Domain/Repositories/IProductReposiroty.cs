@@ -9,5 +9,6 @@ namespace Supermarket.API.Domain.Repositories
     public interface IProductReposiroty
     {
         Task<List<Product>> ListAsync();
+        Task PostAsync(Product producto);
     }
 }

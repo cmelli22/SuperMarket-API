@@ -23,5 +23,10 @@ namespace Supermarket.API.Persistence.Repositories
             return await _context.Products.Include(p=>p.Category).ToListAsync();
         }
 
+        public async Task PostAsync(Product producto)
+        {
+            await _context.Products.AddAsync(producto);
+        }
+
     }
 }
